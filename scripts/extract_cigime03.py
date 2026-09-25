@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+# Push-trigger marker: workflow is active after repository initialization.
 import csv
 import gzip
 import io
@@ -44,7 +45,6 @@ def main() -> None:
 
             matches = RE_CIGIME.findall(haystack)
             if not matches:
-                # Keep unexpected CIGIME-03 formatting for manual audit.
                 row["cigime03_number"] = ""
                 row["cigime03_forgery_marker"] = ""
                 records.append(row)
